@@ -1,4 +1,6 @@
 const path = require('path');
+const PrettierPlugin = require('prettier-webpack-plugin');
+
 module.exports = {
   entry: {
     bundle: './src/app.ts'
@@ -6,7 +8,13 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'
-  },
+	},
+	optimization: {
+		splitChunks: {
+			name: 'vendor',
+			chunks: 'initial',
+		}
+	},
   resolve: {
     extensions: ['.ts', '.js']
   },
@@ -20,5 +28,8 @@ module.exports = {
         loader: 'ts-loader'
       }
     ]
-  }
+	},
+	plugins: [
+		new PrettierPlugin()
+	]
 }

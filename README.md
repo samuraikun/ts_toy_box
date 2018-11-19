@@ -1,6 +1,6 @@
 # Purpose
 
-- Implemention example using some libraries
+- Implemention examples when use some libraries
 
 # Library Impl Examples
 
